@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻将胡了 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            color: #1e2a3a;
+            background: #f4f6fa;
+        }
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1f3348 100%);
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            color: #eaf0f7;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #f4f6fa;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0.5rem auto 0;
+            opacity: 0.85;
+            color: #d1dcec;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid #1f7a8c;
+            padding-left: 1rem;
+            color: #0b1a2e;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,20,30,0.06);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: #16324a;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #3a4b5e;
+            line-height: 1.6;
+        }
+        .accent-link {
+            color: #1f7a8c;
+            text-decoration: none;
+            border-bottom: 1px dotted #1f7a8c;
+            transition: border 0.2s, color 0.2s;
+            font-weight: 500;
+        }
+        .accent-link:hover {
+            color: #125a6b;
+            border-bottom: 1px solid #125a6b;
+        }
+        .scenario-list {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+        }
+        .scenario-list li {
+            margin-bottom: 0.9rem;
+            padding-left: 0.2rem;
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .scenario-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #1f7a8c;
+        }
+        .faq-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+        .faq-item {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .faq-item strong {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #0b1a2e;
+        }
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #3f5368;
+        }
+        .note-box {
+            background: #eaf1f9;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2.4rem 0 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            border-left: 4px solid #1f7a8c;
+        }
+        .note-box p {
+            font-size: 0.94rem;
+            color: #1e3348;
+        }
+        .inline-link-wrap {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.8rem 2rem;
+            text-align: center;
+            margin: 2.2rem 0 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .inline-link-wrap p {
+            font-size: 1.05rem;
+        }
+        .footer-note {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            font-size: 0.85rem;
+            color: #64778b;
+            border-top: 1px solid #d9e1ec;
+            margin-top: 2.5rem;
+        }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 3.5rem 1rem 3rem; }
+            .container { padding: 1.5rem 1rem; }
+            .section-title { font-size: 1.4rem; }
+            .faq-section { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>麻将胡了</h1>
+    <p>一个围绕经典麻将规则构建的轻量级说明入口，提供稳定的访问路径与清晰的页面指引。</p>
+</section>
+
+<div class="container">
+
+    <!-- 摘要 -->
+    <h2 class="section-title">页面说明</h2>
+    <p style="margin-bottom: 2rem; font-size: 1.02rem;">
+        “麻将胡了”并不是一个在线游戏或交互平台，而是一个集中展示麻将规则、术语、胡牌逻辑与常见牌型的静态说明站点。页面内容经过整理，适合希望快速了解麻将基本结构、胡牌条件以及计分方式的读者。所有信息均基于传统麻将规则，不包含实时对局、充值或用户注册功能。
+    </p>
+
+    <!-- 亮点卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>规则整理</h3>
+            <p>涵盖国标、血战、川麻等主流变体核心规则，以清晰条目呈现胡牌公式、番种定义与算番示例。</p>
+        </div>
+        <div class="card">
+            <h3>牌型速查</h3>
+            <p>提供常见听牌、自摸、点炮牌型图示及分解说明，帮助理解“胡”的构成条件与后续计分。</p>
+        </div>
+        <div class="card">
+            <h3>术语表</h3>
+            <p>收录麻将常用术语（如门清、杠上开花、七对、清一色等），附带简短释义，降低理解门槛。</p>
+        </div>
+        <div class="card">
+            <h3>稳定入口</h3>
+            <p>页面结构保持简洁，无跳转弹窗或外部资源加载，长期维护，适合作为收藏与参考起点。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 场景 -->
+    <h2 class="section-title">适用场景</h2>
+    <div class="scenario-list">
+        <li>刚接触麻将的新手，希望系统了解胡牌逻辑与基本术语。</li>
+        <li>与亲友线上约局前，快速对照规则或确认番种定义。</li>
+        <li>想回顾“麻将胡了”页面内容，获得一个清晰、不打扰的参考入口。</li>
+        <li>需要稳定链接用于个人笔记、文档或社群分享，避免经常变动。</li>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 class="section-title">常见疑问摘要</h2>
+    <div class="faq-section">
+        <div class="faq-item">
+            <strong>这个页面可以打牌吗？</strong>
+            <p>不能。本页面仅为规则说明与信息整理，不提供对局、匹配或游戏功能。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何找到原始参考页面？</strong>
+            <p>可直接访问 <a href="https://m-index-mahjong.com" class="accent-link">麻将胡了</a>，该地址作为说明页的固定入口长期维护。</p>
+        </div>
+        <div class="faq-item">
+            <strong>内容会更新吗？</strong>
+            <p>会根据主流规则调整及用户反馈进行适度修订，但不频繁变化，保持稳定。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否需要注册或下载？</strong>
+            <p>完全不需要。所有内容均以静态网页呈现，浏览器打开即可阅读。</p>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-box">
+        <p>
+            <strong>关于访问</strong> — 该页面为纯信息型站点，不含用户数据收集、广告追踪或外部脚本。建议通过浏览器直接打开，无需额外操作。若需分享给他人，可直接发送链接 <a href="https://m-index-mahjong.com" class="accent-link">麻将胡了</a>，对方即可看到相同的说明内容。
+        </p>
+    </div>
+
+    <!-- 自然嵌入链接的句子（非按钮/入口） -->
+    <div class="inline-link-wrap">
+        <p>如果你正在寻找一份关于麻将胡牌规则的整理，不妨花几分钟浏览 <a href="https://m-index-mahjong.com" class="accent-link">麻将胡了</a> 页面，那里的条目式说明也许能帮你快速建立基本框架。</p>
+    </div>
+
+    <div class="footer-note">
+        页面内容仅供学习和参考，不构成任何操作建议或担保。规则细节请以当地通用版本为准。
+    </div>
+
+</div>
+
+</body>
+</html>
